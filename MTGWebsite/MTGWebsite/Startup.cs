@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MTGWebsite.Models;
+using MTGWebsite.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +16,24 @@ namespace MTGWebsite
 {
     public class Startup
     {
+        //   F i e l d s   &   P r o p e r t i e s
+
+        private IConfiguration _configuration { get; }
+
+        // C o n s t r u c to r s
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("AzureDatabase")));
+
+            services.AddScoped<ICardRepository, EfCardRepository>();
+            services.AddScoped<ISetRepository,  EfSetRepository>();
             services.AddControllersWithViews();
         }
 

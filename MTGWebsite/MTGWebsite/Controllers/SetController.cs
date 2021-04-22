@@ -1,28 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using MTGWebsite.Models;
+using MTGWebsite.Models.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MTGWebsite.Controllers
 {
-    public class HomeController : Controller
+    public class SetController : Controller
     {
         //   F i e l d s   &   P r o p e r t i e s
 
-
+        private ISetRepository _repository;
 
         //   C o n s t r u c t o r s
+
+        public SetController(ISetRepository repository)
+        {
+            _repository = repository;
+        }
 
         //   M e t h o d s
 
         public IActionResult Index()
         {
-            return View();
+            IQueryable<Set> allSets = _repository.GetAllSets();
+            return View(allSets);
         }
-
     }
 }

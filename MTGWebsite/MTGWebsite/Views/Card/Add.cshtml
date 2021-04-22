@@ -1,0 +1,50 @@
+﻿@model Card
+
+<form asp-action="Create" method="post">
+    <table>
+        <tr>
+            <th> Name: </th>
+            <td> <input asp-for="Name" /> </td>
+        </tr>
+        <tr>
+            <th> Mana Cost: </th>
+            <td> <input asp-for="ManaCost" /> </td>
+        </tr>
+        <tr>
+            <th> Converted Mana: </th>
+            <td> <input asp-for="ConvertedMana" /> </td>
+        </tr>
+        <tr>
+            <th> Type: </th>
+            <td> <input asp-for="Type" /> </td>
+        </tr>
+        <tr>
+            <th> Card Text: </th>
+            <td> <input asp-for="CardText" /> </td>
+        </tr>
+        <tr>
+            <th> Flavor Text: </th>
+            <td> <input asp-for="FlavorText" /> </td>
+        </tr>
+        <tr>
+            <th> Expansion: </th>
+            <td> <input asp-for="Expansion" /> </td>
+        </tr>
+        <tr>
+            <th> Rarity: </th>
+            <td> <input asp-for="Rarity" /> </td>
+        </tr>
+        <tr>
+            <th> Card Number: </th>
+            <td> <input asp-for="CardNumber" /> </td>
+        </tr>
+        <tr>
+            <th> Image: </th>
+            <td> <input asp-for="Image" /> </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" value="Add Card" /> </td>
+        </tr>
+    </table>
+</form>

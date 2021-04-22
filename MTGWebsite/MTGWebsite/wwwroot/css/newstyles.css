@@ -1,0 +1,9 @@
+﻿* {
+    box-sizing: border-box;
+}
+.images__container {
+    padding: 10px;
+}
+.Images {
+    padding: 5px;
+}

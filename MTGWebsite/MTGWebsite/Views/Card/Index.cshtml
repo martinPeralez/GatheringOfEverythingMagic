@@ -1,0 +1,9 @@
+﻿@model IQueryable<Card>
+
+<link href="~/css/newstyles.css" rel="stylesheet" />
+<div class="images__container">
+    @foreach (Card c in Model)
+    {
+        <span class="Images"><a asp-controller="Card" asp-action="Detail" asp-route-id="@c.CardId"><img src="@c.Image" alt="Alternate Text" /></a></span>
+    }
+</div>
