@@ -9,7 +9,7 @@ namespace MTGWebsite.Models
     [Table("Set")]
     public class Set
     {
-        public int      SetId                  { get; set; }
+        public int      Id                  { get; set; }
         public string   Name                { get; set; }
         public int      CardCount           { get; set; }
         public bool     InStandardRotation  { get; set; }

@@ -46,7 +46,7 @@ namespace MTGWebsite.Controllers
         public IActionResult Index(int productPage = 1)
         {
             IQueryable<Card> someCards = _repository.GetAllCards()
-                                                    .OrderBy(p => p.CardId)
+                                                    .OrderBy(p => p.Id)
                                                     .Skip((productPage - 1) * pageSize)
                                                     .Take(pageSize);
             return View(someCards);

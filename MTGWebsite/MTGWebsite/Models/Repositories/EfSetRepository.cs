@@ -26,7 +26,7 @@ namespace MTGWebsite.Models.Repositories
 
         public Set              GetSetById(int setId)
         {
-            return _context.Sets.Where(s => s.SetId == setId).FirstOrDefault();
+            return _context.Sets.Where(s => s.Id == setId).FirstOrDefault();
         }
 
         public IQueryable<Set>  GetSetsByKeyword(string keyword)

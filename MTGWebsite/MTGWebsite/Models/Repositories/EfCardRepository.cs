@@ -34,7 +34,7 @@ namespace MTGWebsite.Models.Repositories
 
         public Card GetCardById(int cardid)
         {
-            return _context.Cards.Where(p => p.CardId == cardid).FirstOrDefault();
+            return _context.Cards.Where(p => p.Id == cardid).FirstOrDefault();
         }
 
         public IQueryable<Card> GetCardsByKeyword(string keyword)
@@ -44,7 +44,7 @@ namespace MTGWebsite.Models.Repositories
 
         public Card UpdateCard(Card card)
         {
-            Card cardToUpdate = _context.Cards.SingleOrDefault(p => p.CardId == card.CardId);
+            Card cardToUpdate = _context.Cards.SingleOrDefault(p => p.Id == card.Id);
             if(cardToUpdate != null)
             {
                 cardToUpdate.Name = card.Name;

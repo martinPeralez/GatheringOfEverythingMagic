@@ -30,7 +30,7 @@ namespace MTGWebsite.Models
             modelBuilder.Entity<Card>().HasData
                (new Card
                {
-                   CardId = 1,
+                   Id = 1,
                    Name = "Academic Probation",
                    ManaCost = "1 Colorless, 1 White",
                    ConvertedMana = 2,
@@ -46,7 +46,7 @@ namespace MTGWebsite.Models
             modelBuilder.Entity<Card>().HasData
                (new Card
                {
-                   CardId = 2,
+                   Id = 2,
                    Name = "Ageless Guardian",
                    ManaCost = "1 Colorless, 1 White",
                    ConvertedMana = 2,
@@ -63,7 +63,7 @@ namespace MTGWebsite.Models
             modelBuilder.Entity<Card>().HasData
                (new Card
                {
-                   CardId = 3,
+                   Id = 3,
                    Name = "Beaming Defiance",
                    ManaCost = "1 Colorless, 1 White",
                    ConvertedMana = 2,

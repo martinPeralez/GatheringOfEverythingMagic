@@ -9,7 +9,7 @@ namespace MTGWebsite.Models
     [Table("Card")]
     public class Card
     {
-        public int      CardId              { get; set; }
+        public int      Id              { get; set; }
         public string   Name            { get; set; }
         public string   ManaCost        { get; set; }
         public int      ConvertedMana   { get; set; }
