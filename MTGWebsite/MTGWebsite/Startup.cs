@@ -30,8 +30,11 @@ namespace MTGWebsite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("AzureDatabase")));
 
+            string dbConnectionString = System.Environment.GetEnvironmentVariable("GatheringDbConnectionString");
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(dbConnectionString));
+
+            services.AddScoped<IEmailRepository, GmailEmailRepository>();
             services.AddScoped<ICardRepository, EfCardRepository>();
             services.AddScoped<ISetRepository,  EfSetRepository>();
             services.AddControllersWithViews();

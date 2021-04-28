@@ -8,7 +8,7 @@ namespace MTGWebsite.Models.Repositories
     public interface ICardRepository
     {
         // C r e a t e
-        public Card Create(Card card);
+        public Card Add(Card card);
 
 
         // R e a d
@@ -19,5 +19,9 @@ namespace MTGWebsite.Models.Repositories
         // U p d a t e
 
         public Card UpdateCard(Card card);
+
+        // D e l e t e
+
+        public bool DeleteCard(int id);
     }
 }

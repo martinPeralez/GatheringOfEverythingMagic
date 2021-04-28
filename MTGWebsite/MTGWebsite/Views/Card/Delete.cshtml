@@ -1,0 +1,19 @@
+﻿@model Card
+
+<h3> @Model.Name </h3>
+<p> @Model.ManaCost </p>
+<h4> @Model.ConvertedMana </h4>
+<h4> @Model.Type </h4>
+<h4> @Model.CardText </h4>
+<h4> @Model.FlavorText </h4>
+<h4> @Model.Expansion </h4>
+<h4> @Model.Rarity </h4>
+<h4> @Model.CardNumber </h4>
+<img src="@Model.Image" />
+<h1> Are You Sure? </h1>
+<form method="post">
+    <button asp-controller="Card" asp-action="Delete" asp-route-id="@Model.Id"> Delete </button>
+    <button asp-action="Index" formmethod="get">
+        Cancel
+    </button>
+</form>

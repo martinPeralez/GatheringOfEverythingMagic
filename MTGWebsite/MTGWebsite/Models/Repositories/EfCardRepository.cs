@@ -18,12 +18,24 @@ namespace MTGWebsite.Models.Repositories
             _context = context;
         }
 
-        public Card Create(Card card)
+        public Card Add(Card card)
         {
 
             _context.Cards.Add(card);
             _context.SaveChanges();
             return card;
+        }
+
+        public bool DeleteCard(int id)
+        {
+            Card cardToDelete = _context.Cards.Find(id);
+            if(cardToDelete == null)
+            {
+                return false;
+            }
+            _context.Cards.Remove(cardToDelete);
+            _context.SaveChanges();
+            return true;
         }
 
         //   M e t h o d s
@@ -39,7 +51,7 @@ namespace MTGWebsite.Models.Repositories
 
         public IQueryable<Card> GetCardsByKeyword(string keyword)
         {
-            return _context.Cards.Where(p => p.Name.Contains(keyword));
+            return _context.Cards.Where(p => p.Name.Contains(keyword) || p.Type.Contains(keyword));
         }
 
         public Card UpdateCard(Card card)
@@ -57,6 +69,8 @@ namespace MTGWebsite.Models.Repositories
                 cardToUpdate.Rarity = card.Rarity;
                 cardToUpdate.CardNumber = card.CardNumber;
                 cardToUpdate.Image = card.Image;
+                cardToUpdate.Power = card.Power;
+                cardToUpdate.Toughness = card.Toughness;
                 _context.SaveChanges();
             }
             return cardToUpdate;

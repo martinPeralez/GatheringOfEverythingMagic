@@ -40,11 +40,14 @@
         </tr>
         <tr>
             <th>Image: </th>
-            <td><input asp-for="Image" /><img src="@Model.Image" alt="Alternate Text" /></td>
+            <td><img src="@Model.Image" alt="Alternate Text" /></td>
         </tr>
         <tr>
-            <th></th>
-            <td><input type="submit" value="Update"/></td>
+            @*<th></th>
+            <td><input type="submit" value="Update" /></td>*@
         </tr>
     </table>
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Update Card" class="btn btn-sm btn-success" />
+    <a asp-controller="Card" asp-action="Detail" asp-route-id="@Model.Id" class="btn btn-sm btn-primary"> Cancel </a>
 </form>

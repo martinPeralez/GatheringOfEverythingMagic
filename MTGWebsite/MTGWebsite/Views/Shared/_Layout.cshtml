@@ -7,6 +7,7 @@
     <link href="~/css/styles.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -30,12 +31,16 @@
                 <li class="navbar__item">
                     <a href="/" class="navbar__links"> Decks </a>
                 </li>
+                <li class="navbar__item">
+                    <a class="navbar__links" asp-controller="Card" asp-action="Search"> Search </a>
+                </li>
                 <li class="navbar__btn">
                     <a href="/" class="button"> Sign Up </a>
                 </li>
             </ul>
         </div>
     </nav>
+
     @RenderBody()
     <!-- Hero Section -->
     <div class="main">
@@ -53,7 +58,6 @@
     </div>
 
     <!-- Services Section -->
-
     <div class="services">
         <h1>See what the hype is about</h1>
         <div class="services__container">

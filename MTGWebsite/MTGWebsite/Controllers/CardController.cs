@@ -22,27 +22,40 @@ namespace MTGWebsite.Controllers
         }
 
         //   M e t h o d s
+        [HttpGet]
+        public IActionResult Search()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Search(string keyword)
+        {
+            IQueryable<Card> cards = _repository.GetCardsByKeyword(keyword);
+            return View(cards);
+        }
+
+        // C r e a t e
 
         [HttpGet]
         public IActionResult Add()
         {
-            
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Card c)
+        public IActionResult Add(Card c)
         {
-            _repository.Create(c);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _repository.Add(c);
+                return RedirectToAction("Detail", new { id = c.Id });
+            }
+            return View(c);
         }
 
+        // R e a d
 
-        //public IActionResult Index()
-        //{
-        //    IQueryable<Card> allCards = _repository.GetAllCards();
-        //    return View(allCards);
-        //}
         public IActionResult Index(int productPage = 1)
         {
             IQueryable<Card> someCards = _repository.GetAllCards()
@@ -55,24 +68,20 @@ namespace MTGWebsite.Controllers
         public IActionResult Detail(int id)
         {
             Card card = _repository.GetCardById(id);
-            if(card != null)
+            if (card != null)
             {
                 return View(card);
             }
             return RedirectToAction("Index");
         }
 
-        public IActionResult Search(string keyword)
-        {
-            IQueryable<Card> cards = _repository.GetCardsByKeyword(keyword);
-            return View(cards);
-        }
+        // U p d a t e
 
         [HttpGet]
         public IActionResult Update(int id)
         {
             Card card = _repository.GetCardById(id);
-            if(card != null)
+            if (card != null)
             {
                 return View(card);
             }
@@ -86,5 +95,26 @@ namespace MTGWebsite.Controllers
             _repository.UpdateCard(card);
             return RedirectToAction("Index");
         }
+
+        // D e l e t e
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            Card card = _repository.GetCardById(id);
+            if (card != null)
+            {
+                return View(card);
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Card card, int id)
+        {
+            _repository.DeleteCard(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

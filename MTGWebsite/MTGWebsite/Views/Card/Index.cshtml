@@ -1,9 +1,14 @@
 ﻿@model IQueryable<Card>
 
 <link href="~/css/newstyles.css" rel="stylesheet" />
-<div class="images__container">
-    @foreach (Card c in Model)
-    {
-        <span class="Images"><a asp-controller="Card" asp-action="Detail" asp-route-id="@c.Id"><img src="@c.Image" alt="Alternate Text" /></a></span>
-    }
-</div>
+
+<form asp-controller="Card" asp-action="Search" method="post">
+    <input type="text" name="keyword" value="Test" />
+    <input type="submit" asp-controller="Card" asp-action="Search" placeholder="Card Name">
+</form>
+
+<a asp-controller="Card" asp-action="Add">Add New Card</a>
+@foreach (Card c in Model)
+{
+    <span class="Images"><a asp-controller="Card" asp-action="Detail" asp-route-id="@c.Id"><img src="@c.Image" alt="Alternate Text" /></a></span>
+}

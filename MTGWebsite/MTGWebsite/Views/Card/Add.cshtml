@@ -1,6 +1,6 @@
 ﻿@model Card
 
-<form asp-action="Create" method="post">
+<form asp-action="Add" method="post">
     <table>
         <tr>
             <th> Name: </th>
@@ -41,6 +41,14 @@
         <tr>
             <th> Image: </th>
             <td> <input asp-for="Image" /> </td>
+        </tr>
+        <tr>
+            <th> Power: </th>
+            <td> <input asp-for="Power" /> </td>
+        </tr>
+        <tr>
+            <th> Toughness: </th>
+            <td> <input asp-for="Toughness" /> </td>
         </tr>
         <tr>
             <th></th>

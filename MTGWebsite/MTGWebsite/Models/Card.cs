@@ -20,5 +20,7 @@ namespace MTGWebsite.Models
         public string   Rarity          { get; set; }
         public int      CardNumber      { get; set; }
         public string   Image           { get; set; }
+        public int      ?Power           { get; set; }
+        public int      ?Toughness       { get; set; }
     }
 }

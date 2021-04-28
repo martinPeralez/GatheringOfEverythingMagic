@@ -1,12 +1,50 @@
 ﻿@model Card
 
-<h3> @Model.Name </h3>
-<h4> @Model.ManaCost </h4>
-<h4> @Model.ConvertedMana </h4>
-<h4> @Model.Type </h4>
-<h4> @Model.CardText </h4>
-<h4> @Model.FlavorText </h4>
-<h4> @Model.Expansion </h4>
-<h4> @Model.Rarity </h4>
-<h4> @Model.CardNumber </h4>
-<img src="@Model.Image" alt="Alternate Text" />
+@if (Model.Power == null && Model.Power == null)
+{
+
+    <h3> @Model.Name </h3>
+    <h4> @Model.ManaCost </h4>
+    <h4> @Model.ConvertedMana </h4>
+    <h4> @Model.Type </h4>
+    <h4> @Model.CardText </h4>
+    <h4> @Model.FlavorText </h4>
+    <h4> @Model.Expansion </h4>
+    <h4> @Model.Rarity </h4>
+    <h4> @Model.CardNumber </h4>
+    <img src="@Model.Image" alt="Alternate Text" />
+    <a asp-controller="Card" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-danger">Update Card</a>
+    <button class="btn btn-danger"><a asp-controller="Card" asp-action="Delete" asp-route-id="@Model.Id">Delete</a></button>
+
+
+}
+else
+{
+    <h3> @Model.Name </h3>
+    <h4> @Model.ManaCost </h4>
+    <h4> @Model.ConvertedMana </h4>
+    <h4> @Model.Type </h4>
+    <h4> @Model.CardText </h4>
+    <h4> @Model.FlavorText </h4>
+    <h4> @Model.Expansion </h4>
+    <h4> @Model.Rarity </h4>
+    <h4> @Model.CardNumber </h4>
+    <h4> @Model.Power </h4>
+    <h4> @Model.Toughness </h4>
+    <img src="@Model.Image" alt="Alternate Text" />
+    <a asp-controller="Card" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-danger">Update Card</a>
+    <button class="btn btn-danger"><a asp-controller="Card" asp-action="Delete" asp-route-id="@Model.Id">Delete</a></button>
+
+}
+@*<h3> @Model.Name </h3>
+    <h4> @Model.ManaCost </h4>
+    <h4> @Model.ConvertedMana </h4>
+    <h4> @Model.Type </h4>
+    <h4> @Model.CardText </h4>
+    <h4> @Model.FlavorText </h4>
+    <h4> @Model.Expansion </h4>
+    <h4> @Model.Rarity </h4>
+    <h4> @Model.CardNumber </h4>
+    <img src="@Model.Image" alt="Alternate Text" />*@
+
+

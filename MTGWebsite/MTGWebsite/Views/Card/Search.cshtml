@@ -1,16 +1,16 @@
 ﻿@model IQueryable<Card>
 
+<form asp-action="Search" method="post">
+    <input type="text" name="keyword" value="Test" />
+    <input type="submit" asp-controller="Card" asp-action="Search" asp-route-keyword=""> Search </input>
+</form>
+
 <hr />
+
 @foreach (Card c in Model)
 {
-    <h3> c.Name </h3>
-    <h4> c.ManaCost </h4>
-    <h4> c.ConvertedMana </h4>
-    <h4> c.Type </h4>
-    <h4> c.CardText </h4>
-    <h4> c.FlavorText </h4>
-    <h4> c.Expansion </h4>
-    <h4> c.Rarity </h4>
-    <h4> c.CardNumber </h4>
-    <h4> c.Image </h4>
+    <img src="@c.Image" />
+    <hr />
 }
+
+
